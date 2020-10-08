@@ -1,0 +1,9 @@
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\bin\Debug\netcoreapp3.1\Restaurant.domain.core.deps.json
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\bin\Debug\netcoreapp3.1\Restaurant.domain.core.dll
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\bin\Debug\netcoreapp3.1\Restaurant.domain.core.pdb
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\obj\Debug\netcoreapp3.1\Restaurant.domain.core.csprojAssemblyReference.cache
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\obj\Debug\netcoreapp3.1\Restaurant.domain.core.AssemblyInfoInputs.cache
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\obj\Debug\netcoreapp3.1\Restaurant.domain.core.AssemblyInfo.cs
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\obj\Debug\netcoreapp3.1\Restaurant.domain.core.csproj.CoreCompileInputs.cache
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\obj\Debug\netcoreapp3.1\Restaurant.domain.core.dll
+C:\Users\royber manjarrez\RiderProjects\Restaurant\Restaurant.domain.core\obj\Debug\netcoreapp3.1\Restaurant.domain.core.pdb
