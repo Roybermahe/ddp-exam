@@ -5,51 +5,48 @@ namespace Restaurant.domain.core
 {
     public class Restaurant
     {
-        public static string ForSale => "tSale";
-        public static string ForUse => "tUse";
-        private static List<SimpleProduct> _allIngredients;
-        private static List<ProductCompound> _allCompoundsSale;
+        private readonly List<IProduct> _allProducts;
 
-        public Restaurant()
+        public Restaurant() => _allProducts = new List<IProduct>();
+
+        public string AddIngredient(Ingredient ingredient)
         {
-           _allIngredients = new List<SimpleProduct>();
-           _allCompoundsSale = new List<ProductCompound>();
-        }
-        
-        public string AddNewIngredient(SimpleProduct product)
-        {
-            if (IngredientExist(product.Identify))
+            if (ingredient.Detail.Quantity == 0) return "Se necesita una cantidad mayor a 0";
+            if (ProductExist(ingredient.Detail.Id))
             {
-                GetIngredient(product.Identify).Quantity += product.Quantity;
-                return $"Se aumento la cantidad disponible de este producto, hay {GetIngredient(product.Identify).Quantity}";
+                GetProduct(ingredient).GetDetail().Quantity += ingredient.Detail.Quantity;
+                return "Se aumento la cantidad de este ingrediente"; 
             }
-            _allIngredients.Add(product);
+            _allProducts.Add(ingredient);
             return "Se agrego el ingrediente correctamente";
         }
 
-        public string AddAllIngredients(SimpleProduct[] list)
+        public string TakeProduct(int IdProducto, int cantidad)
         {
-            if (list.Length  == 0)
-                return "No hay ingredients";
-            foreach (var simpleProduct in list)
-            {
-                AddNewIngredient(simpleProduct);
-            }
-            return "all ingredients added";
+            _allProducts.Find(t => t.Identification() == IdProducto)?.TakeProduct(cantidad, TODO);
         }
         
-        public int CantidadDeIngredientesDisponibles() {
-            return _allIngredients.Count;
+        public void AddAllIngredients(IEnumerable<Ingredient> list)
+        {
+            foreach (var item in list)
+            {
+                AddIngredient(item);
+            }
         }
 
-        private static bool IngredientExist(int id)
+        private bool ProductExist(int idProducto)
         {
-            return _allIngredients.FindAll(t => t.Identify == id).Count > 0;
+            return _allProducts.FindAll(t => t.Identification() == idProducto).Count > 0;
         }
 
-        private SimpleProduct GetIngredient(int id)
+        private IProduct GetProduct(IProduct product)
         {
-            return _allIngredients.Find(t => t.Identify == id);
+            return _allProducts.Find(t => t.Identification() == product.Identification());
+        }
+
+        private List<IProduct> GetIngredients()
+        {
+            return _allProducts.FindAll(t => t is Ingredient);
         }
     }
 }
